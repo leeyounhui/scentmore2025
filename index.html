@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="js/jquery-3.7.1.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Gravitas+One&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<style>
+  @charset "UTF-8"
+*{margin: 0; padding: 0;}
+body{
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+}
+body{background-color:#f9f6ea; list-style: none;}
+P{
+    font-family: "Hi Melody", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.menu ul li a{
+    text-decoration: none;
+}
+/* HEADER */
+.b {
+  width: 100%;
+  height: 50px;
+  background-color: #2e2e2e;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 50px;
+    margin: 0 auto;
+}
+.logo_image{
+height: 50px;
+color: #e5ded2;
+background-color: #2e2e2e;
+text-shadow: 0.5px 0.5px 0 black;
+display: flex;              /* Flexbox로 변경 */
+justify-content: center;   /* 수평 가운데 정렬 */
+align-items: center;
+}
+.logo_image p{
+font-family: "Libre Baskerville", serif;
+font-weight: 900;
+font-style: normal;
+text-align: center;
+margin: 0;
+position: relative;
+top: 8%;
+}
+nav a {
+  color: black; /* 또는 #000000 */
+  text-decoration: none; /* 밑줄 제거 (선택사항) */
+}
+.menu{
+    width: 90%;
+    height: 40px;
+    margin: 5px auto;
+}
+.menu ul{
+    display: flex;
+    align-items: center;
+    height: 60%;
+    padding: 0%;
+    list-style: none;
+    justify-content: center;
+}
+.menu ul li{
+    float: left;
+    margin-left: 120px;
+    font-size: 15px;
+    text-align: center;
+    color: #2e2e2e;
+}
+.menu ul li a:hover{
+    transform: scale(1.5);
+    border-bottom: 1px solid olive;
+    color: olive;
+}
+/* SECTION -MAIN */
+.main {
+  width: 100%;
+  height: 800px;
+  margin: 0 auto;
+}
+
+.slide-wrapper {
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.slide-container {
+  display: flex;
+  width: 1600*4; /* 슬라이드 4개니까 100% * 4 */
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  width: 100%;
+  height: 800px;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.slide1 { background-image: url(image/main/007.png); }
+.slide2 { background-image: url(image/main/004.png); }
+.slide3 { background-image: url(image/main/007.png); }
+.slide4 { background-image: url(image/main/004.png); }
+/* SECTION -TITLE1 */
+.title1{
+    width: 100%;
+    height: 500px;
+    background-color:  #e5ded2;
+    margin: 0 auto;
+}
+.image_box{
+    width: 90%;
+    height: 460px;
+    padding-top: 30px;
+    margin: 0 auto;
+}
+.image1, .image2, .image3, .image4{
+    width: 320px;
+    height: 410px;
+    float: left;
+    display: flex;
+    margin-left: 5px;
+}
+.image1{
+    background-image: url(image/상품\ \(1\).jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.image2{
+    background-image: url(image/상품\ \(2\).jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.image3{
+    background-image: url(image/상품\ \(3\).jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.image1:hover{
+    transform: scale(1.1);
+    opacity: 0.5;
+    transition: all 1S;
+}
+.image2:hover{
+    transform: scale(1.1);
+    opacity: 0.5;
+    transition: all 1S;
+}
+.image3:hover{
+    transform: scale(1.1);
+    opacity: 0.5;
+    transition: all 1S;
+}
+button {
+height: 50px;
+display: flex;
+background-color: #2e2e2e;
+color: #e5ded2;
+align-items: center;
+justify-content: center;
+position: relative;
+top: 70px; left: 90px;
+}
+button a{
+width: 200px;
+font-size: 18px;
+text-decoration: none;
+color: #f9f6ea;
+
+text-align: center;
+}
+button:hover{
+    transform: scale(1.4);
+    transition: all 1s;
+}
+.b_text p{
+font-size: 20px;
+width: 300px;
+position: relative;
+    top: 35%;
+    right: 55%;
+}
+h1{
+    position: relative;
+    top: 100px;
+    font-size: 35px;
+    display: block;
+}
+p{
+    position: relative;
+    top: 100px;
+    font-size: 16px;
+    display: block;
+
+}
+/* SECTION -TITLE2 */
+.title2{
+    width: 90%;
+    height: 610px;
+    margin: 0 auto;
+}
+.box1,.box2{
+    width: 400px;
+    height: 610px;
+    float: left;
+}
+.box1:hover{
+    transform: scale(1.1);
+    transition: all 1s;
+}
+.box2:hover{
+    transform: scale(1.1);
+    transition: all 1s;
+}
+.box3{
+    width: 450px;
+    height: 610px;
+    float: left;
+}
+.box1{
+    background-image: url(image/main/004.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.box2{
+    background-image: url(image/main/005.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+/* SECTION -TITLE3 */
+.title3{
+    width: 90%;
+    height: 610px;
+    margin: 0 auto;
+}
+.box4{
+   width: 450px;
+    height: 610px;
+    float: left;
+}
+.box5{
+    background-image: url(image/main/003.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.box5:hover{
+    transform: scale(1.1);
+    transition: all 1s;
+}
+.box6{
+    background-image: url(image/main/006.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.box6:hover{
+    transform: scale(1.1);
+    transition: all 1s;
+}
+.box5,.box6{
+    width: 400px;
+    height: 610px;
+    float: left;
+}
+.title4{
+    width: 90%;
+    height: 400px;
+    margin: 0 auto;
+}
+/* SECTION -REVIEW */
+.review{
+    width: 90%;
+    height: 800px;
+    margin: 0 auto;
+}
+.r_image1,.r_image2, .r_image3{
+    width: 100%;
+    height: 400px;
+    float: left;
+}
+.r_image1{
+    background-image: url(image/003.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.r_image2{
+    background-image: url(image/ston2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.r_image3{
+    background-image: url(image/002.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.r_image1 a {
+    text-decoration: none;  
+    color: inherit;          
+}
+.r_image2 a {
+    text-decoration: none;  
+    color: inherit;          
+}
+.r_image3 a {
+    text-decoration: none;  
+    color: inherit;          
+}
+.r_image1:hover{
+    opacity: 0.5;
+    transition: all 0.8s;
+}
+.r_image2:hover{
+    opacity: 0.5;
+    transition: all 0.8s;
+}
+.r_image3:hover{
+    opacity: 0.5;
+    transition: all 0.8s;
+}
+
+   
+.program{
+    width: 90%;
+    height: 400px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(image/logo/센트모어_로고-응용2.png);
+    background-position: center center;
+}
+/* SECTION -FOOTER */
+.footer1{
+    width: 100%;
+    height: 50px;
+    background-color: #2e2e2e;
+    
+}
+
+/* 태블릿 대응 (1024px 이하) */
+@media (max-width: 1024px) {
+  .title1 {
+    background-color: #f9f6ea;
+  }
+
+  .menu ul li {
+    margin-left: 30px;
+    font-size: 13px;
+  }
+
+  .slide-wrapper,
+  .slide,
+  .main {
+    height: 400px;
+  }
+
+  .image_box {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    box-sizing: border-box;
+  }
+
+  .image1, .image2, .image3 {
+    width: 31%;
+    min-width: 200px;
+    height: 310px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .image4 {
+    display: none;
+  }
+
+.box1, .box6{
+    display: none;
+}
+  .box2{
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+  } 
+  .box3{
+    width: 100%;
+    height: 300px; 
+  }
+  .box4{
+    width: 100%;
+    height: 300px;
+    float: left;
+  }
+  .box5{
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+  }
+
+  .title2, .title3 {
+    height: 300px;
+  }
+
+  .r_image1, .r_image2, .r_image3 {
+    height: 300px;
+    display: block;
+    margin: 0 auto 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+    top: 70px;
+  }
+
+  p {
+    font-size: 14px;
+    top: 70px;
+  }
+
+  .b_text p {
+    font-size: 14px;
+    width: 100%;
+    right: 0;
+    text-align: center;
+  }
+
+  .program {
+    display: block;
+    background-size: contain;
+    width: 100%;
+    height: 300px;
+    clear: both;
+  }
+}
+
+/* 모바일 대응 (768px 이하) */
+@media(max-width: 768px) {
+  .menu ul {
+    display: flex;
+    gap: 20px;
+  }
+
+  .menu ul li {
+    margin-left: 0;
+    font-size: 11px;
+  }
+
+  .slide-wrapper,
+  .slide,
+  .main {
+    height: 450px;
+  }
+
+  .image_box {
+    width: 300px;
+    height: 400px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+    display: block;
+    
+  }
+
+  .image1, .image2, .image3, .image4{
+    width: 300px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+  }
+  .b_text{
+    display: none;
+  }
+.box3, .box4{
+    width: 100%;
+    height: 200px;
+  }
+  
+.box2, .box5 {
+    width: 100%;
+    height: 200px;
+    background-size:cover;
+    display: block;
+    margin-top: 40px;
+  }
+
+  .title2, .title3 {
+    height: auto;
+  }
+
+  .r_image1, .r_image2, .r_image3 {
+    height: 350px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-top: 20px;
+   
+  }
+
+  p {
+    font-size: 13px;
+    margin-top: 20px;
+  }
+
+  .b_text p {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .program {
+    background-size: contain;
+  }
+
+  .footer1 {
+    height: auto;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+}
+</style>
+<body>
+<div class="wrap">
+<!-- HEADER -->
+<header class="header">
+<div class="logo_image">
+   <p>SCENT MORE</p>
+</div>
+</div>
+</header>
+<!-- NAVIGATION -->
+<nav class="menu">
+<ul>
+<li><a href="#">HOME</a></li>
+<li><a href='#'>ABOUT</a></li>
+<li><a href='#'>AROMA GEL</a></li>
+<li><a href='#'>ROLL-ON</a></li>
+<li><a href='#'>STONE DIFFUSER</a></li>
+</ul>
+</nav>
+<!-- SECTION - MAIN -->
+<section>
+<article class="main">
+  <div class="slide-wrapper">
+    <div class="slide-container">
+      <div class="slide slide1"></div>
+      <div class="slide slide2"></div>
+      <div class="slide slide3"></div>
+      <div class="slide slide4"></div>
+    </div>
+  </div>
+</article>
+<!-- SECTION - TITLE1 -->
+<article class="title1">
+<div class="image_box">
+<div class="image1"><a href="#"></a></div>
+<div class="image2"><a href="#"></a></div>
+<div class="image3"><a href='#'></a></div>
+<div class="image4">
+<button><a href="#">Find Your Scent</a></button>
+<div class="b_text">
+       <p>잠깐의 쉼의 필요할 때,<br>
+        당신만의 향을 꺼내보세요</p>
+</div>
+</div>
+</div>
+<!-- SECTION - TITLE2 -->
+</article>
+<article class="title2">
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3">
+<h1>Fragrance for deeper rest,<br>
+fuller breaths, and a truer you</h1>
+<p>향은 마음을 다독이는 작고 부드러운 루틴입니다.<br>
+센트모어는 당신의 하루에 더 고요한 순간과, 부드러운<br> 
+숨을 담습니다.</p>
+</div>
+</article>   
+<!-- SECTION - TITLE2 -->
+<article class="title3">
+<div class="box4">
+<h1>Fragrance for deeper rest,<br>
+fuller breaths, and a truer you</h1>
+<p>향의 머무는 순간, 바쁜 일상은 멈추고 감정은 깊이 숨 쉽니다<br>
+더 깊은 감정, 더 긴 호흡, 더 나은 하루를 위한 시작<br>
+당신만의 리듬을 되찾는 순간을 경험하세요</p>
+</div>
+<div class="box5"></div>
+<div class="box6"></div>
+</article>
+</article>
+<article class="title4">
+<div class="box7"></div>
+<div class="box8"></div>
+<div class="box9">
+    <div class="r_image3"><a href="#">
+    <div class="r_image_t1">
+<h1>AROMA GEL</h1>
+<p>바쁜하루, 손끝 위 잠깐의 휴식 은은하게 머무는 향이 긴장된 마음의 결을 풀어줍니다<br>
+가볍게 스며들고 오래 머무는 향이 당신의 하루를 천천히 감쌉니다 언제든 감정의 리듬을 리셋하세요</p>
+</div>
+</a></div>
+</article> 
+<!-- SECTION - REVIEW -->
+<article class="review">
+<div class="image_box2">
+<div class="r_image1"><a href="#">
+    <div class="r_image_t1">
+        <h1>AROMA ROLL-ON</h1>
+        <P>어디서든, 부드러운 나만의 향 작고 조용한 향의 제스처가 당신의 하루에 고요한 감각을 틔웁니다. <br>
+        일상 곳곳에서 감정을 어루만지는 향을 만나보세요 
+</P>
+    </div>
+</a></div>
+<div class="r_image2"><a href="#">
+    <div class="r_image_t1">
+        <h1>STONE DIFFUSER</h1>
+        <P>숨쉬는 공간, 조용한 향의 무게 숨쉬는 공간에 스며드는 스톤의 향이 <br>
+        당신의 공간을 깊고 부드러운 향으로 물들여보세요 
+</P>
+    </div>
+</a></div>
+</div>
+</article>
+<article class="program"></article>
+</section>
+<footer>
+<div class="footer1">
+</div>
+</footer>
+</div>
+  <script>
+  $(function() {
+    let currentIndex = 0;
+    const slideCount = 4;
+
+    function goToSlide(index) {
+      const slideWidth = $('.slide-wrapper').width();
+      $('.slide-container').css('transform', 'translateX(' + (-slideWidth * index) + 'px)');
+    }
+
+    setInterval(function() {
+      currentIndex = (currentIndex + 1) % slideCount;
+      goToSlide(currentIndex);
+    }, 3000);
+  });
+</script>
+</body>
+</html>
